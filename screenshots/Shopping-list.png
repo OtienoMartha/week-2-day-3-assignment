@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://127.0.0.1:5500/shopping-list.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="./Shopping-list_files/styles.css">
+</head>
+<body>
+
+    <div class="app">
+        <h1>Shopping List</h1>
+        <p class="subtitle">Add items, mark them bought, or delete them</p>
+
+        <!-- Input row -->
+        <div class="shopping-form">
+            <input type="text" id="item-name" placeholder="Item name">
+            <input type="number" id="item-quantity" placeholder="Qty" value="1" min="1">
+            <button id="add-btn" class="add-btn" type="button">Add Item</button>
+        </div>
+
+        <!-- Error message (hidden by default, populated by JS) -->
+        <p id="error-message" class="error-message"></p>
+
+        <!-- Remaining counter -->
+        <p id="remaining-count" class="remaining-count">3 items remaining</p>
+
+        <!-- The list itself -->
+        <ul id="shopping-list" class="shopping-list"><li><span class="item-name">banana</span><span class="item-quantity">x1</span><button class="bought-btn" type="button">Bought</button><button class="delete-btn" type="button">Delete</button></li><li><span class="item-name">milk</span><span class="item-quantity">x3</span><button class="bought-btn" type="button">Bought</button><button class="delete-btn" type="button">Delete</button></li><li><span class="item-name">flour</span><span class="item-quantity">x4</span><button class="bought-btn" type="button">Bought</button><button class="delete-btn" type="button">Delete</button></li></ul>
+    </div>
+
+    <script src="./Shopping-list_files/shopping-list.js.download"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
